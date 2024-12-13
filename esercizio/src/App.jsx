@@ -7,8 +7,7 @@ function App() {
 
   return (
     <>
-    <Registrazione></Registrazione>
-    </>
+<Registrazione></Registrazione>    </>
   )
 }
 

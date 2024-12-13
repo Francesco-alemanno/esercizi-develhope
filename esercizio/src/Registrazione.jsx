@@ -10,6 +10,7 @@ export function Registrazione(){
 
     })
     const [errore,setErrore]=useState('')
+    const [errorEmail, setErrorEmail]=useState('')
 
     const handleChange=(event)=>{
 const {name,value}= event.target 
@@ -26,19 +27,36 @@ setData((prevData)=>({
 
      } 
 
-    const handleSubmit=(event)=>{
-       event.preventDefault()
-        localStorage.setItem('user', JSON.stringify(data))
-        const existUser=localStorage.getItem('user');
-        if(existUser){
-            const parseExistUser=JSON.parse(existUser)
-            if(parseExistUser.email===data.email){
-                setErrore('Email gia esistente')
-                return
-
-            }
+     const handleSubmit = (event) => {
+        event.preventDefault();
+        if (errore) eturn;
+        const existData = localStorage.getItem("users");
+        let utentiRegistrati = [];
+    
+        // verifica se esiste l'array vuoto
+        if (existData) {
+          utentiRegistrati = JSON.parse(existData);
         }
-    }
+    
+        // verifica se l'email esiste o no
+        const existEmail = utentiRegistrati.some((x) => x.email === data.email);
+    
+        // verifica se l'email non esiste
+        if (existEmail) {
+          setErrorEmail("Email già registrata");
+          return;
+        }
+    
+        utentiRegistrati.push(data);
+        localStorage.setItem("users", JSON.stringify(utentiRegistrati));
+        setData({
+          nome: "",
+          cognome: "",
+          email: "",
+          password: "",
+        });
+        console.log("hai cliccato submit");
+      };
 
 
     return(
@@ -53,7 +71,7 @@ setData((prevData)=>({
                 <label htmlFor="Password">Password</label>
                 <input type="password" name="password" id="password"   placeholder="Password..." onChange={handleChange}  value={data.password} />
                 {errore && (<p style={{color: 'red'}}> {errore}</p>)}
-                
+                {errorEmail && (<p style={{color: 'red'}}> {errorEmail}</p>)}
                 <button  disabled={errore ? true : false} type="submit"> Registrati</button>
                 
             </form>

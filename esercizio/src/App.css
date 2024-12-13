@@ -23,10 +23,12 @@
 .form{
   display: flex;
   align-items: center;
+  width: 50%;
   gap: 10px;
 }
  body{
   background-color: rgba(240, 248, 255, 0.301);
+  width: 1208px;
  }
 /* NAVBAR */
 
@@ -51,10 +53,12 @@
 .registrazione{
   display: flex;
   flex-direction: column;
-  width: 50%;
   margin: 0 auto;
 }
 
 .registrazione input{
   padding: 10px;
 }
+ .box{
+  width: 50%;
+ }

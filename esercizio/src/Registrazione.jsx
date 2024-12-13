@@ -29,8 +29,8 @@ setData((prevData)=>({
 
      const handleSubmit = (event) => {
         event.preventDefault();
-        if (errore) eturn;
-        const existData = localStorage.getItem("users");
+        if (errore) return;
+        const existData = localStorage.getItem("users") ;
         let utentiRegistrati = [];
     
         // verifica se esiste l'array vuoto
@@ -60,7 +60,7 @@ setData((prevData)=>({
 
 
     return(
-        <div>
+        <div className="box">
             <form className="registrazione" onSubmit={handleSubmit}>
                 <label htmlFor="Nome">Nome</label>
                 <input type="text" name="nome" id="nome" placeholder="Nome..." onChange={handleChange} value={data.nome} />

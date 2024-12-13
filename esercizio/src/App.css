@@ -1,0 +1,58 @@
+
+.navbar{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid gray;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #FFDEAD;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:hover{
+  color: blue;
+  cursor: pointer;
+}
+
+.form{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* NAVBAR */
+
+.sezioni{
+  border: 1px solid black;
+  width: 15%;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #FFDEAD;
+}
+
+.sezioni a{
+  text-decoration: none;
+  color: black;
+}
+
+.sezioni a:hover{
+  cursor: pointer;
+  color: blue;
+}
+
+.registrazione{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.registrazione input{
+  padding: 10px;
+}

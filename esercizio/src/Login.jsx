@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import { useState } from "react"
+import { UserContext } from "./UserContext"
 
 export function Login(){
 
@@ -7,6 +9,8 @@ const [data,setData]=useState({
     password:'',
 })
  const [messaggio, setMessaggio]=useState('')
+const {login}=useContext(UserContext)
+ 
 const handleChange=(event)=>{
     const {name,value}= event.target 
    
@@ -20,11 +24,12 @@ const handleChange=(event)=>{
         event.preventDefault()
      const users= localStorage.getItem('users')
    const parseUsers= JSON.parse(users)
-   const userExist= parseUsers.some((x)=>x.email===data.email && x.password ===data.password)
+  
+   const userExist= parseUsers.find((x)=>x.email===data.email && x.password ===data.password)
 
    if(userExist){
 setMessaggio('login effettuato con successo')
-const isLogged= localStorage.setItem('isLogged' ,true)
+login(userExist)
    }else{
     setMessaggio('credenziali errate')
     

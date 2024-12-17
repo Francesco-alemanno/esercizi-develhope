@@ -1,19 +1,24 @@
 
+import { useState } from 'react'
 import './App.css'
 import { Dashboard } from './Dashboard'
 import { Login } from './Login'
 import { Registrazione } from './Registrazione'
+import { useEffect } from 'react'
+import { UserProvider } from './UserContext'
 
 
 function App() {
-const isLogged=localStorage.getItem('isLogged')
+ 
   return (
-    <>
-<Registrazione></Registrazione> 
-{isLogged? <Dashboard></Dashboard> : <Login></Login> }
-
-   </>
-  )
+   <UserProvider>
+    
+    <Registrazione></Registrazione>
+    <Login></Login>
+    <Dashboard></Dashboard>
+    
+     </UserProvider>
+  );
 }
 
 export default App

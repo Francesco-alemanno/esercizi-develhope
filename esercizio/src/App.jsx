@@ -6,13 +6,14 @@ import { Login } from './Login'
 import { Registrazione } from './Registrazione'
 import { useEffect } from 'react'
 import { UserProvider } from './UserContext'
+import { FakeUser } from './FakeUser'
 
 
 function App() {
  
   return (
    <UserProvider>
-    
+    <FakeUser></FakeUser>
     <Registrazione></Registrazione>
     <Login></Login>
     <Dashboard></Dashboard>

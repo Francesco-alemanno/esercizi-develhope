@@ -5,7 +5,9 @@ import { createContext } from "react";
 export const UserContext= createContext()
 
 export function UserProvider({children}){
+    
 const [userLogged, setUserLogged]=useState(null)
+
 useEffect(()=>{
     const data=localStorage.getItem('user')
     if(data){

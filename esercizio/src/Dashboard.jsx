@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { UserContext } from "./UserContext"
 
-export function Dashboard({setIsLogged}){
+export function Dashboard(){
 const {logout, userLogged}=useContext(UserContext)
 
 

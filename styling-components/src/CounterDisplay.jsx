@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export function CounterDisplay(){
-    const [count,setCount]=useState('')
+    const [count,setCount]=useState(0)
     const handleStart=()=>{
-        setCount((c)=>c+1)
+        setCount(count=>count+1)
     }
     return(
         <div>

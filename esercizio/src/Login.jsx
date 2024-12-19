@@ -10,7 +10,7 @@ export function Login() {
 
   const [messaggio, setMessaggio] = useState("");
 
-  const { login } = useContext(UserContext);
+  const { login, userLogged, setUserLogged } = useContext(UserContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,14 +25,14 @@ export function Login() {
     event.preventDefault();
     const users = localStorage.getItem("users");
     const parseUsers = JSON.parse(users);
-    console.log(parseUsers);
     const userExist = parseUsers.find(
       (x) => x.email === data.email && x.password === data.password
     );
-    console.log(userExist);
     if (userExist) {
       setMessaggio("login effettuato con successo");
-      login(userExist);
+      login(userExist)
+      setUserLogged(userExist)
+      console.log(userLogged)
     } else {
       setMessaggio("credenziali errate");
     }

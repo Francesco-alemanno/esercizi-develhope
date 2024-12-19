@@ -5,7 +5,7 @@ export function Dashboard(){
 const {logout, userLogged}=useContext(UserContext)
 
 
-
+console.log(userLogged)
 
 
     return(

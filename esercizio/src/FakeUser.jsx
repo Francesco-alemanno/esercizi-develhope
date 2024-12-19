@@ -1,21 +1,11 @@
 import { useEffect, useState } from "react";
+import { useFetch } from "./useFetch";
 
 export function FakeUser() {
   const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchFunction = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          "https://fakerapi.it/api/v1/users?_quantity=18&_locale=it_IT&_seed=12456"
-        );
-        if (!response.ok) {
-          throw new Error("Errore nel fetching dei dati");
-        }
-        const data = await response.json();
+const {data, loading}=useFetch("https://fakerapi.it/api/v1/users?_quantity=18&_locale=it_IT&_seed=12456")
+
         const arrUsersApi = data.data;
         setUsers(arrUsersApi);
 
@@ -24,14 +14,7 @@ export function FakeUser() {
         if (utentiRegistrati) {
           setUsers([...arrUsersApi, ...utentiRegistrati]);
         }
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchFunction();
-  }, []);
+     
 
   return (
     <>

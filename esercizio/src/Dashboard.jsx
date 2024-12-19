@@ -16,7 +16,7 @@ console.log(userLogged)
             <div><span>Nome: </span> <span>{userLogged.nome}</span></div>
             <div><span>Cognome:</span> <span>{userLogged.cognome}</span></div>
             <div><span>Email: </span> <span>{userLogged.email}</span></div>
-            <button onClick={logout()}>Logout</button>
+            <button onClick={logout}>Logout</button>
         </div>) : ( <p>Nessun utente effettua il login</p>) }
         </>
        

@@ -3,20 +3,22 @@ import './App.css'
 import { Dashboard } from './Dashboard'
 import { Login } from './Login'
 import { Registrazione } from './Registrazione'
-import { UserProvider } from './UserContext'
 import { FakeUser } from './FakeUser'
+import { UserProvider } from './UserContext'
 
 
 function App() {
  
   return (
    <UserProvider>
-    <FakeUser></FakeUser>
+  <FakeUser></FakeUser>
     <Registrazione></Registrazione>
     <Login></Login>
     <Dashboard></Dashboard>
+   </UserProvider>
+  
     
-     </UserProvider>
+    
   );
 }
 
